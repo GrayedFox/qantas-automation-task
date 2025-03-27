@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "node18",
+    "target": "ES2022",
+    "noImplicitAny": true
+  },
+  "include": ["playwright"],
+  "exclude": ["node_modules"]
+}

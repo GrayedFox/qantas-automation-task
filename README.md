@@ -28,35 +28,43 @@ QAT_PW_BASE_URL="https://www.saucedemo.com/v1/"
 
 ### VSCode Extensions
 
-If using `vscode` and allowing the workspace recommended extensions and settings to apply prettier will format files on save and markdown will render in the same style as it does on GitHub.
+If using `vscode` and allowing the workspace recommended extensions and settings to apply prettier will format files on
+save and markdown will render in the same style as it does on GitHub.
 
 - `esbenp.prettier-vscode`: Prettier
 - `bierner.markdown-preview-github-styles`: Markdown Preview Github Styling
+- `dbaeumer.vscode-eslint`: Integrated ESLint
 
 ## Linting and Formatting
 
 - `npm run lint`: lint everything with ESLint
 - `npm run prettify`: format everything with Prettier
 
-## Running Tests
+## Test Running and Development
 
-### playwright
+- `npm run dev`: open the playwright test runner
+- `npm run test:api`: run the API tests headlessly
+- `npm run test:web`: run the integration tests headlessly
 
 ## Why PlayWright for everything?
 
 There were a few options that stood out as potential frameworks for this task, namely:
 
-- `PACT`: is a mature framework but is best utilized "...where you (or your team/organisation/partner organisation) control the development of both
-  the consumer and the provider", see FAQ question about testing [public APIs][4]
-- `postman-cli`: now [supports generating JUnit][3] and other widely test report formats, this may be a better choice for certain teams and organisations that already use Postman for manual API testing, development, and/or documentation but it also requires a Postman team and API key
+- `PACT`: is a mature framework but is best utilized _"...where you (or your team/organisation/partner organisation) control the development of both
+  the consumer and the provider"_ (see FAQ question about testing [public APIs][4])
+- `postman-cli`: now [supports generating JUnit][3] and other widely used test report formats, this may be a better choice for certain teams and
+  organisations that already use Postman for manual API testing, development, and/or documentation but it also requires a Postman team and API key
 - `newmann`: is the historical go-to companion to Postman but still benefits if Postman is already being used as part of the team's tooling given it
   [consumes a collection][5] (or URL)
 
-This little task repo optimizes for the following conditions:
+This repo optimizes for the following:
 
-1. minimal setup and dependencies while still meeting all required acceptance criteria dictated in the brief
-2. a single programming language (pytest is great for paramtrizing fixtures and keeping tests DRY but introduces too much overhead)
-3.
+1. time constraints: minimal setup and dependencies while still meeting all required acceptance criteria dictated in the brief
+2. unified language and environment: pytest is great for paramtrizing fixtures and keeping tests DRY but multiple languages increases overhead
+3. stongly typed and easy to debug: using TypeScript and PlayWright for both API and web tests will speed up development and reduce debugging time
+
+Using PACT would likely be a good get given more complex API testing needs and multiple teams/products, this mostly came down to the "right tool
+for the job" givent the scope of the task.
 
 ## Troubleshooting
 

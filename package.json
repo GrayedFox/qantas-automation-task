@@ -1,7 +1,7 @@
 {
   "name": "qantas-automation-task",
   "version": "0.0.1",
-  "description": "Automation task for Qantas using PlayWright and github actions",
+  "description": "Automation task for Qantas using PlayWright and GitHub Actions",
   "scripts": {
     "dev": "playwright test --ui",
     "lint": "eslint playwright",

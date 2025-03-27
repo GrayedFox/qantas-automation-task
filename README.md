@@ -69,6 +69,25 @@ for the job" givent the scope of the task.
 ## Troubleshooting
 
 > add troubleshooting steps when encountered
+> note that if an invalid UUID is provided for the mersenne seed it will default to a randomly generated one
+
+## Report
+
+### Bugs
+
+1. it's not possible to add multiple of the same product to the cart from the product list or cart display
+2. the dollar sign is missing from the cart display page
+3. it's not possible to edit the quantity despite it looking a bit like an input
+4. it's possible to enter only spaces for the customer information which will get past the details screen
+5. the customer details field never asks for an address, unless that information is tied to the stored payment method, the shop won't know where to ship the products
+6. the customer's details aren't displayed on the checkout summary screen
+7. the checkout button is a link (`a`) instead of a `button` element on the your cart screen
+8. the continue button on the your informatio screen is classed as an input instead of a `button`
+9. the finish button is a link (`a`) instead of a `button` element on the your cart screen
+
+### Other
+
+- tested all sorting functions manually and they are working as expected and described (A-Z, Z-A, High-Low, Low-High)
 
 [0]: https://nodejs.org/en/download
 [1]: https://learning.postman.com/docs/postman-cli/postman-cli-installation/

@@ -1,0 +1,38 @@
+{
+  "name": "qantas-automation-task",
+  "version": "0.0.1",
+  "description": "Automation task for Qantas using PlayWright and github actions",
+  "scripts": {
+    "dev": "playwright test --ui",
+    "lint": "eslint playwright",
+    "prettify": "prettier --write .",
+    "test:api": "playwright test --grep @api",
+    "test:web": "playwright test --grep @web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrayedFox/qantas-automation-task.git"
+  },
+  "author": "Che Fisher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrayedFox/qantas-automation-task/issues"
+  },
+  "homepage": "https://github.com/GrayedFox/qantas-automation-task#readme",
+  "engineStrict": true,
+  "engines": {
+    "node": "v22.14.0",
+    "npm": "v11.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.13",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "prettier": "3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
+  }
+}

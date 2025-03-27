@@ -1,0 +1,3 @@
+# Ignore artifacts and external code
+node_modules
+coverage

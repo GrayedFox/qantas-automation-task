@@ -7,7 +7,7 @@ Technical task involving API and web front-end automation using `PlayWright`.
 Senior Quality Engineer - Qantas Hotels
 
 > [!TIP]
-> Cool built in [table of contents][6] (thanks GitHub!).
+> Cool built in [table of contents][6] (thanks GitHub :rocket:).
 
 ## Requirements
 
@@ -21,9 +21,18 @@ From the project root please do the following:
 1. `npm ci`: clean install of project deps
 2. `npx playwright install --with-deps`: ensures PlayWright has everything it needs to run on your operating system
 3. Create a `.env` file and set the variable PlayWright uses for the `baseUrl`
+4. To interact with the WeatherBit API you'll need [to signup][7] to the free tier of their service and confirm your account via a confirmation email
+
+> [!NOTE]
+> Set the chance seed if needing consistency in case of a failed runs, see the [chance docs][8] for more info. Leaving it blank results in a random UUID being used as the seed.
 
 ```bash
-QAT_PW_BASE_URL="https://www.saucedemo.com/v1/"
+QAT_PW_CHANCE_SEED=""
+QAT_PW_SWAG_URL="https://www.saucedemo.com/"
+QAT_PW_SWAG_USERNAME="standard_user"
+QAT_PW_SWAG_PASSWORD="secret_sauce"
+QAT_PW_WEATHER_BIT_API_KEY=""
+QAT_PW_WEATHER_BIT_URL="https://api.weatherbit.io/"
 ```
 
 ### VSCode Extensions
@@ -69,7 +78,7 @@ for the job" givent the scope of the task.
 ## Troubleshooting
 
 > add troubleshooting steps when encountered
-> note that if an invalid UUID is provided for the mersenne seed it will default to a randomly generated one
+> note that if an invalid UUID is provided for the Mersenne twister seed it will default to a randomly generated one
 
 ## Report
 
@@ -96,3 +105,5 @@ for the job" givent the scope of the task.
 [4]: https://docs.pact.io/faq#why-pact-may-not-be-the-best-tool-for-public-testing-apis
 [5]: https://learning.postman.com/docs/collections/using-newman-cli/installing-running-newman/#run-a-collection-with-newman
 [6]: https://github.blog/changelog/2021-04-13-table-of-contents-support-in-markdown-files/
+[7]: https://www.weatherbit.io/account/create
+[8]: https://chancejs.com/usage/seed.html

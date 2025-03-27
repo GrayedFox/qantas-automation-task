@@ -1,7 +1,10 @@
 import Chance from 'chance';
 import crypto, { UUID } from 'crypto';
 import { isRandomUuid } from '../utility';
+import { Page } from '@playwright/test';
+import { setupBrowser, teardownBrowser } from '../utility';
 
+// required interface for using Chance instance
 interface IChance {
   seed?: UUID;
   chance: Chance.Chance;
@@ -40,12 +43,16 @@ export abstract class Actor implements IChance {
   readonly seed: UUID;
   readonly chance: Chance.Chance;
 
+  protected page: Page;
+
   constructor(
     readonly name: string,
     readonly chanceOptions?: ChanceOptions,
   ) {
     this.seed = mersenneSeed || crypto.randomUUID();
     this.chance = new Chance(this.seed);
+
+    console.log(`QAT_CHANCE_SEED: ${this.seed}`);
   }
 
   /** Shorthand method to return a chance instance */
@@ -61,5 +68,15 @@ export abstract class Actor implements IChance {
   /** Simple wrapper of chance postcode method which will always return a UK postcode */
   postcode(): string {
     return this.C.postcode();
+  }
+
+  /** Opens a browser and sets the page property of the actor */
+  async opensBrowser() {
+    this.page = await setupBrowser();
+  }
+
+  /** Closes the browser using the page property of the actor */
+  async closesBrowser() {
+    await teardownBrowser(this.page);
   }
 }

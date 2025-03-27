@@ -1,7 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Locator, Page } from 'playwright';
 import { createParser } from 'css-selector-parser';
 import { Actor, ChanceOptions } from './Actor';
-import { setupBrowser, teardownBrowser } from '../utility';
 import { expect } from '@playwright/test';
 
 interface ISwagDetails {
@@ -23,7 +23,6 @@ const parseCss = createParser({ strict: true });
  * We're using a content driven selection approach to minimise the need for selectors and to avoid intercepting network requests.
  */
 export class SwagActor extends Actor {
-  private page: Page;
   private _ancestor: string;
 
   username: string;
@@ -52,17 +51,7 @@ export class SwagActor extends Actor {
     this._ancestor = selector;
   }
 
-  /** Opens a browser and sets the page property of the actor */
-  async opensBrowser() {
-    this.page = await setupBrowser();
-  }
-
-  /** Closes the browser using the page property of the actor */
-  async closesBrowser() {
-    await teardownBrowser(this.page);
-  }
-
-  /** Wraps {@link Page.goto} */
+  /** Wraps {@link Page.goto} in order to visit target URL */
   async visits(url: string) {
     await this.page.goto(url);
   }

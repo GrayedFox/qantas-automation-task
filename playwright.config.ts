@@ -18,7 +18,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.QAT_PW_BASE_URL,
+    baseURL: process.env.QAT_PW_SWAG_URL,
     trace: 'on',
   },
 

@@ -20,7 +20,7 @@ From the project root please do the following:
 
 1. `npm ci`: clean install of project deps
 2. `npx playwright install --with-deps`: ensures PlayWright has everything it needs to run on your operating system
-3. Create a `.env` file and set the variable PlayWright uses for the `baseUrl`
+3. Create a `.env` file and set all needed variables for PlayWright to run `baseUrl` (see example below)
 4. To interact with the WeatherBit API you'll need [to signup][7] to the free tier of their service and confirm your account via a confirmation email
 
 > [!NOTE]
@@ -79,8 +79,7 @@ for the job" givent the scope of the task.
 
 ## Troubleshooting
 
-> add troubleshooting steps when encountered
-> note that if an invalid UUID is provided for the Mersenne twister seed it will default to a randomly generated one
+1. note that if an invalid UUID is provided for the Mersenne twister seed it will default to a randomly generated one
 
 ## Report
 

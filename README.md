@@ -7,7 +7,7 @@ Technical task involving API and web front-end automation using `PlayWright`.
 Senior Quality Engineer - Qantas Hotels
 
 > [!TIP]
-> Cool built in [table of contents][6] (thanks GitHub!).
+> Cool built in [table of contents][6] (thanks GitHub :rocket:).
 
 ## Requirements
 
@@ -20,10 +20,19 @@ From the project root please do the following:
 
 1. `npm ci`: clean install of project deps
 2. `npx playwright install --with-deps`: ensures PlayWright has everything it needs to run on your operating system
-3. Create a `.env` file and set the variable PlayWright uses for the `baseUrl`
+3. Create a `.env` file and set all needed variables for PlayWright to run `baseUrl` (see example below)
+4. To interact with the WeatherBit API you'll need [to signup][7] to the free tier of their service and confirm your account via a confirmation email
+
+> [!NOTE]
+> Set the chance seed if needing consistency in case of a failed runs, see the [chance docs][8] for more info. Leaving it blank results in a random UUID being used as the seed.
 
 ```bash
-QAT_PW_BASE_URL="https://www.saucedemo.com/v1/"
+QAT_PW_CHANCE_SEED=""
+QAT_PW_SWAG_URL="https://www.saucedemo.com/"
+QAT_PW_SWAG_USERNAME="standard_user"
+QAT_PW_SWAG_PASSWORD="secret_sauce"
+QAT_PW_WEATHER_BIT_API_KEY=""
+QAT_PW_WEATHER_BIT_URL="https://api.weatherbit.io/"
 ```
 
 ### VSCode Extensions
@@ -43,8 +52,10 @@ save and markdown will render in the same style as it does on GitHub.
 ## Test Running and Development
 
 - `npm run dev`: open the playwright test runner
+- `npm test`: run both web and API tests headlessly
 - `npm run test:api`: run the API tests headlessly
 - `npm run test:web`: run the integration tests headlessly
+- `npm run test:report`: show the HTML report of the last test run
 
 ## Why PlayWright for everything?
 
@@ -68,7 +79,25 @@ for the job" givent the scope of the task.
 
 ## Troubleshooting
 
-> add troubleshooting steps when encountered
+1. note that if an invalid UUID is provided for the Mersenne twister seed it will default to a randomly generated one
+
+## Report
+
+### Bugs
+
+1. it's not possible to add multiple of the same product to the cart from the product list or cart display
+2. the dollar sign is missing from the cart display page
+3. it's not possible to edit the quantity despite it looking a bit like an input
+4. it's possible to enter only spaces for the customer information which will get past the details screen
+5. the customer details field never asks for an address, unless that information is tied to the stored payment method, the shop won't know where to ship the products
+6. the customer's details aren't displayed on the checkout summary screen
+7. the checkout button is a link (`a`) instead of a `button` element on the your cart screen
+8. the continue button on the your informatio screen is classed as an input instead of a `button`
+9. the finish button is a link (`a`) instead of a `button` element on the your cart screen
+
+### Other
+
+- tested all sorting functions manually and they are working as expected and described (A-Z, Z-A, High-Low, Low-High)
 
 [0]: https://nodejs.org/en/download
 [1]: https://learning.postman.com/docs/postman-cli/postman-cli-installation/
@@ -77,3 +106,5 @@ for the job" givent the scope of the task.
 [4]: https://docs.pact.io/faq#why-pact-may-not-be-the-best-tool-for-public-testing-apis
 [5]: https://learning.postman.com/docs/collections/using-newman-cli/installing-running-newman/#run-a-collection-with-newman
 [6]: https://github.blog/changelog/2021-04-13-table-of-contents-support-in-markdown-files/
+[7]: https://www.weatherbit.io/account/create
+[8]: https://chancejs.com/usage/seed.html

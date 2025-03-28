@@ -4,6 +4,12 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+env:
+  QAT_PW_SWAG_URL: ${{ vars.QAT_PW_SWAG_URL }}
+  QAT_PW_SWAG_USERNAME: ${{ vars.QAT_PW_SWAG_USERNAME }}
+  QAT_PW_SWAG_PASSWORD: ${{ secrets.QAT_PW_SWAG_PASSWORD }}
+  QAT_PW_WEATHER_BIT_API_KEY: ${{ secrets.QAT_PW_WEATHER_BIT_API_KEY }}
+  QAT_PW_WEATHER_BIT_URL: ${{ vars.QAT_PW_WEATHER_BIT_URL }}
 jobs:
   test:
     timeout-minutes: 60

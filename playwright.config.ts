@@ -6,23 +6,20 @@ import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
- * See https://playwright.dev/docs/test-configuration.
+ * See https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
   testDir: './playwright/tests',
   fullyParallel: true,
+  // Opt out of parallel tests on CI and retry on CI only
   forbidOnly: !!process.env.CI,
-  // Retry on CI only
   retries: process.env.CI ? 2 : 0,
-  // Opt out of parallel tests on CI
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.QAT_PW_BASE_URL,
     trace: 'on',
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
@@ -30,3 +27,11 @@ export default defineConfig({
     },
   ],
 });
+
+export const weatherBitConfig = {
+  baseUrl: process.env.QAT_PW_WEATHER_BIT_URL,
+};
+
+export const swagConfig = {
+  baseUrl: process.env.QAT_PW_SWAG_URL,
+};

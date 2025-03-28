@@ -52,8 +52,10 @@ save and markdown will render in the same style as it does on GitHub.
 ## Test Running and Development
 
 - `npm run dev`: open the playwright test runner
+- `npm test`: run both web and API tests headlessly
 - `npm run test:api`: run the API tests headlessly
 - `npm run test:web`: run the integration tests headlessly
+- `npm run test:report`: show the HTML report of the last test run
 
 ## Why PlayWright for everything?
 

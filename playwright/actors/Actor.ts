@@ -1,8 +1,7 @@
 import Chance from 'chance';
 import crypto, { UUID } from 'crypto';
-import { isRandomUuid } from '../utility';
 import { Page } from '@playwright/test';
-import { setupBrowser, teardownBrowser } from '../utility';
+import { isRandomUuid, setupBrowser, teardownBrowser } from '../utility';
 
 // required interface for using Chance instance
 interface IChance {

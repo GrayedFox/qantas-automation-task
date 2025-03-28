@@ -1,4 +1,5 @@
 import { test } from '@playwright/test';
+import { swagConfig } from '../../../playwright.config';
 import { SwagActor } from '../../actors';
 
 const productData = {
@@ -42,6 +43,9 @@ const hubert = new SwagActor(
     },
   },
 );
+
+// use the swag config for testing Swag Labs web client
+test.use({ baseURL: swagConfig.baseUrl });
 
 // we run this test serially as there's very little cleanup or complexity involved here
 test.describe.configure({ mode: 'serial' });

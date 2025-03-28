@@ -6,8 +6,10 @@
     "dev": "playwright test --ui",
     "lint": "eslint playwright",
     "prettify": "prettier --write .",
+    "test": "playwright test",
     "test:api": "playwright test --grep @api",
-    "test:web": "playwright test --grep @web"
+    "test:web": "playwright test --grep @web",
+    "test:report": "playwright show-report"
   },
   "repository": {
     "type": "git",
